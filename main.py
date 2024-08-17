@@ -7,6 +7,7 @@ Commands:
 {Fore.LIGHTWHITE_EX}- cd [path] - {Fore.BLUE}Changes directory
 {Fore.LIGHTWHITE_EX}- dir - {Fore.BLUE}Lists the items of the current directory
 {Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
+{Fore.LIGHTWHITE_EX}- exec [name] - {Fore.BLUE}Executes a file
 
 
 """
@@ -34,6 +35,8 @@ if __name__ == "__main__":
                 i = i + 1
         elif tokens_space[0].lower() == "help" and len(tokens_space) == 1:
             print(help)
+        elif tokens_space[0].lower() == "exec" and len(tokens_space) == 2:
+            os.startfile(tokens_space[1])
         else:
             try:
                 os.startfile(tokens_space[0])
