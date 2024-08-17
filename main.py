@@ -8,6 +8,7 @@ Commands:
 {Fore.LIGHTWHITE_EX}- dir - {Fore.BLUE}Lists the items of the current directory
 {Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
 {Fore.LIGHTWHITE_EX}- exec [name] - {Fore.BLUE}Executes a file
+{Fore.LIGHTWHITE_EX}- dfurl [url] - {Fore.BLUE}Downloads a file from the given url
 
 
 """
@@ -37,6 +38,9 @@ if __name__ == "__main__":
             print(help)
         elif tokens_space[0].lower() == "exec" and len(tokens_space) == 2:
             os.startfile(tokens_space[1])
+        elif tokens_space[0].lower() == "dfurl" and len(tokens_space) == 2:
+            import urllib.request
+            s = urllib.request.urlopen(tokens_space[1]).read().decode()
         else:
             try:
                 os.startfile(tokens_space[0])
