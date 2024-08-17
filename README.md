@@ -20,12 +20,12 @@ dfurl [url] [filesavename] - Downloads a file from the given url
 
 #### Added Commands
 
-    cd,
+cd,
 
-    dir,
+dir,
 
-    help,
+help,
 
-    exec,
+exec,
 
-    dfurl
+dfurl
