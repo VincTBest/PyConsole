@@ -16,7 +16,7 @@ dfurl [url] [filesavename] - Downloads a file from the given url
 
 ## Versions
 
-## 0.0.1 Alpha
+### 0.0.1 Alpha
 
 Added:
 
