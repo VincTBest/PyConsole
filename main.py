@@ -1,0 +1,23 @@
+from colorama import Fore
+import os
+
+if __name__ == "__main__":
+    version = "0.0.1 Alpha"
+    path = os.getcwd()
+    print(f"{Fore.LIGHTWHITE_EX}Original PyConsole {version}\n"
+          f"{Fore.LIGHTWHITE_EX}Made by VincTBest\n"
+          f"{Fore.LIGHTWHITE_EX}Visit https://github.com/VincTBest/PyConsole to get the newes updates.\n")
+    while True:
+        command = input(f"{Fore.LIGHTWHITE_EX}{path}> ")
+        tokens_space = command.split(" ")
+        if tokens_space[0].lower() == "cd" and len(tokens_space) == 2:
+            try:
+                os.chdir(tokens_space[1])
+                path = os.getcwd()
+            except:
+                print(f"{Fore.RED}ERROR: Can not change to a non-existing directory >> {tokens_space[1]} <<")
+        elif tokens_space[0].lower() == "dir" and len(tokens_space) == 1:
+            os.listdir(os.getcwd())
+        else:
+            print(f"{Fore.RED}ERROR: >> {tokens_space[0]} << is not a recognized command or executeable")
+        print("")
