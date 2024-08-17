@@ -4,6 +4,8 @@ PyConsole is a basicly CMD made inside Python
 
 ## Features
 
-cd - Change Directory - cd (path)
+cd - Changes directory - cd (path)
 
-lsdi - List Directory Items - lsdi
+lsdi - Lists the items of the current directory - lsdi
+
+help - Shows a help message - help
