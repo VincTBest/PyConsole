@@ -9,3 +9,5 @@ cd [path] - Changes directory
 dir - Lists the items of the current directory
 
 help - Shows a help message
+
+exec [name] - Executes a file
