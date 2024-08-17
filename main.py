@@ -16,8 +16,12 @@ if __name__ == "__main__":
                 path = os.getcwd()
             except:
                 print(f"{Fore.RED}ERROR: Can not change to a non-existing directory >> {tokens_space[1]} <<")
-        elif tokens_space[0].lower() == "dir" and len(tokens_space) == 1:
-            os.listdir(os.getcwd())
+        elif tokens_space[0].lower() == "lsdi" and len(tokens_space) == 1:
+            dir = os.listdir(os.getcwd())
+            i = 0
+            while i < len(dir):
+                print(dir[i])
+                i = i + 1
         else:
             print(f"{Fore.RED}ERROR: >> {tokens_space[0]} << is not a recognized command or executeable")
         print("")
