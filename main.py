@@ -5,8 +5,10 @@ help = f"""
 Commands:
 
 {Fore.LIGHTWHITE_EX}- cd [path] - {Fore.BLUE}Changes directory
-{Fore.LIGHTWHITE_EX}- lsdi - {Fore.BLUE}Lists the items of the current directory
+{Fore.LIGHTWHITE_EX}- dir - {Fore.BLUE}Lists the items of the current directory
 {Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
+
+
 """
 
 if __name__ == "__main__":
@@ -24,7 +26,7 @@ if __name__ == "__main__":
                 path = os.getcwd()
             except:
                 print(f"{Fore.RED}ERROR: Can not change to a non-existing directory >> {tokens_space[1]} <<")
-        elif tokens_space[0].lower() == "lsdi" and len(tokens_space) == 1:
+        elif tokens_space[0].lower() == "dir" and len(tokens_space) == 1:
             dir = os.listdir(os.getcwd())
             i = 0
             while i < len(dir):
@@ -33,5 +35,8 @@ if __name__ == "__main__":
         elif tokens_space[0].lower() == "help" and len(tokens_space) == 1:
             print(help)
         else:
-            print(f"{Fore.RED}ERROR: >> {tokens_space[0]} << is not a recognized command or executeable")
+            try:
+                os.startfile(tokens_space[0])
+            except:
+                print(f"{Fore.RED}ERROR: >> {tokens_space[0]} << is not a recognized command or executeable")
         print("")
