@@ -12,4 +12,4 @@ help - Shows a help message
 
 exec [name] - Executes a file
 
-dfurl [url] - Downloads a fil from the given url
+dfurl [url] [filesavename] - Downloads a file from the given url
