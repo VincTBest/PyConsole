@@ -18,14 +18,14 @@ dfurl [url] [filesavename] - Downloads a file from the given url
 
 ### 0.0.1 Alpha
 
-#### Added Commands
+#### Added Commands:
 
-cd,
+- cd,
 
-dir,
+- dir,
 
-help,
+- help,
 
-exec,
+- exec,
 
-dfurl
+- dfurl
