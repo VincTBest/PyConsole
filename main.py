@@ -8,9 +8,7 @@ Commands:
 {Fore.LIGHTWHITE_EX}- dir - {Fore.BLUE}Lists the items of the current directory
 {Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
 {Fore.LIGHTWHITE_EX}- exec [name] - {Fore.BLUE}Executes a file
-{Fore.LIGHTWHITE_EX}- dfurl [url] - {Fore.BLUE}Downloads a file from the given url
-
-
+{Fore.LIGHTWHITE_EX}- dfurl [url] [filesavename] - {Fore.BLUE}Downloads a file from the given url
 """
 
 if __name__ == "__main__":
@@ -38,9 +36,17 @@ if __name__ == "__main__":
             print(help)
         elif tokens_space[0].lower() == "exec" and len(tokens_space) == 2:
             os.startfile(tokens_space[1])
-        elif tokens_space[0].lower() == "dfurl" and len(tokens_space) == 2:
+        elif tokens_space[0].lower() == "dfurl" and len(tokens_space) == 3:
             import urllib.request
             s = urllib.request.urlopen(tokens_space[1]).read().decode()
+            try:
+                sf = open(file=tokens_space[2], mode="x")
+                sf.write(s)
+                sf.close()
+                print(f"{Fore.LIGHTGREEN_EX}Successfully downloaded {tokens_space[2]} from {tokens_space[1]}")
+            except:
+                print(f"{Fore.RED}ERROR: There is already a file named >> {tokens_space[2]} <<")
+
         else:
             try:
                 os.startfile(tokens_space[0])
