@@ -1,6 +1,14 @@
 from colorama import Fore
 import os
 
+help = f"""
+Commands:
+
+{Fore.LIGHTWHITE_EX}- cd [path] - {Fore.BLUE}Changes directory
+{Fore.LIGHTWHITE_EX}- lsdi - {Fore.BLUE}Lists the items of the current directory
+{Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
+"""
+
 if __name__ == "__main__":
     version = "0.0.1 Alpha"
     path = os.getcwd()
@@ -23,13 +31,7 @@ if __name__ == "__main__":
                 print(dir[i])
                 i = i + 1
         elif tokens_space[0].lower() == "help" and len(tokens_space) == 1:
-            help = """
-            Commands:
-            
-            - cd - Changes directory - cd (path)
-            - lsdi - Lists the items of the current directory - lsdi
-            - help - Shows a help message - help
-            """
+            print(help)
         else:
             print(f"{Fore.RED}ERROR: >> {tokens_space[0]} << is not a recognized command or executeable")
         print("")
