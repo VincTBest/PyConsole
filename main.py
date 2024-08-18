@@ -78,7 +78,10 @@ if __name__ == "__main__":
                 pycrrffdlgin = pycrrffdlg.get_input()
                 try:
                     pycrrffdlgfile = open(file=pycrrffdlgin, mode="r")
-                    print(f"{Fore.LIGHTWHITE_EX}PyCodeRunner : Python {pyver} >> {exec(pycrrffdlgfile)}")
+                    pycrrffdlgfileread = pycrrffdlgfile.read()
+                    print(f"{Fore.LIGHTWHITE_EX}PyCodeRunner : Python {pyver} >> {pycrrffdlgfile}")
+                    exec(pycrrffdlgfileread)
+                    pycrrffdlgfile.close()
                 except:
                     print(f"{Fore.RED}ERROR: Did not found Python file named >> {pycrrffdlgin} <<")
 
