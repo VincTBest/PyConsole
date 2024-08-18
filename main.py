@@ -1,5 +1,10 @@
+import datetime
+import sys
+
 from colorama import Fore
 import os
+
+pyver = f"{sys.version[0]}{sys.version[1]}{sys.version[2]}{sys.version[3]}{sys.version[4]}{sys.version[5]}{sys.version[6]}"
 
 help = f"""
 Commands:
@@ -9,7 +14,11 @@ Commands:
 {Fore.LIGHTWHITE_EX}- help - {Fore.BLUE}Shows a help message
 {Fore.LIGHTWHITE_EX}- exec [name] - {Fore.BLUE}Executes a file
 {Fore.LIGHTWHITE_EX}- dfurl [url] [filesavename] - {Fore.BLUE}Downloads a file from the given url
+{Fore.LIGHTWHITE_EX}- pycr - {Fore.BLUE}Opens Python code runner
 """
+
+PyCodeRunnerInfo = f"""
+Python Version : {pyver}"""
 
 if __name__ == "__main__":
     version = "0.0.1 Alpha"
@@ -46,6 +55,50 @@ if __name__ == "__main__":
                 print(f"{Fore.LIGHTGREEN_EX}Successfully downloaded {tokens_space[2]} from {tokens_space[1]}")
             except:
                 print(f"{Fore.RED}ERROR: There is already a file named >> {tokens_space[2]} <<")
+        elif tokens_space[0].lower() == "pycr" and len(tokens_space) == 1:
+            import customtkinter as ctk
+            from CTkMenuBar import *
+            from CTkMessagebox import *
+
+            def runpycr():
+                pycrcode = pycrinput.get("1.0", "999999999999999999999.0")
+                print(f"{Fore.LIGHTWHITE_EX}PyCodeRunner : Python {pyver} >> {exec(pycrcode)}")
+
+            def infopycr():
+
+                CTkMessagebox(title="PyCommandRunner Info", message=PyCodeRunnerInfo,)
+
+                # infopycrnew = ctk.CTkToplevel()
+                # infopycrnew.geometry("400x300")
+                # infopycrnew.title("PyCodeRunner Info")
+                # infopycrnew_label = ctk.CTkLabel(infopycrnew, text=)
+
+            def pycrrff():
+                pycrrffdlg = ctk.CTkInputDialog(title="PyCR : RunFromFile", text="File Name:")
+                pycrrffdlgin = pycrrffdlg.get_input()
+                try:
+                    pycrrffdlgfile = open(file=pycrrffdlgin, mode="r")
+                    print(f"{Fore.LIGHTWHITE_EX}PyCodeRunner : Python {pyver} >> {exec(pycrrffdlgfile)}")
+                except:
+                    print(f"{Fore.RED}ERROR: Did not found Python file named >> {pycrrffdlgin} <<")
+
+            pycoderunner = ctk.CTk()
+            pycoderunner.geometry("560x380")
+            pycoderunner.title("PyCodeRunner")
+
+            pycrinput = ctk.CTkTextbox(pycoderunner, width=1920*4, height=2160*4)
+            pycrinput.pack(padx=10, pady=10)
+
+            menu = CTkTitleMenu(pycoderunner)
+            ctmbtn = menu.add_cascade("Commands")
+
+            ctmmenu = CustomDropdownMenu(widget=ctmbtn)
+            ctmmenu.add_option(option="Run", command=runpycr)
+            ctmmenu.add_option(option="Info", command=infopycr)
+            ctmmenu.add_option(option="Run From File", command=pycrrff)
+            ctmmenu.add_option(option="Exit", command=pycoderunner.quit)
+
+            pycoderunner.mainloop()
 
         else:
             try:
