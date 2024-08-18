@@ -21,11 +21,13 @@ dfurl [url] [filesavename] - Downloads a file from the given url
 #### Added Commands:
 
 - cd,
-
 - dir,
-
 - help,
-
 - exec,
-
 - dfurl
+
+### 0.0.2 Alpha
+
+#### Added Commands:
+
+- pycr
