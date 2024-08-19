@@ -103,6 +103,31 @@ if __name__ == "__main__":
 
             pycoderunner.mainloop()
 
+        elif tokens_space[0].lower() == "qr" and len(tokens_space) == 3:
+            if tokens_space[1].lower() == "make" and len(tokens_space) == 3:
+                import qrcode
+
+
+                # Function to generate and display QR code
+                def generate_qr_code(data, filename='qrcode.png'):
+                    # Create a QR Code object
+                    img = qrcode.make(data)
+
+                    # Save the image to a file
+                    img.save(filename)
+
+                    # Display the QR code image
+                    img.show()
+
+                    print(f'QR code generated and saved as {filename}')
+
+                # Usage
+                data = tokens_space[2]  # The data you want to encode in the QR code
+                filename = tokens_space[3]  # The name of the file where the QR code will be saved
+                generate_qr_code(data, filename)
+            elif tokens_space[1].lower() == "read" and len(tokens_space) == 3:
+                pass
+
         else:
             try:
                 os.startfile(tokens_space[0])
