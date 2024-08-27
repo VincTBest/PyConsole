@@ -105,8 +105,8 @@ if __name__ == "__main__":
             pycoderunner.mainloop()
 
         elif tokens_space[0].lower() == "qr" and len(tokens_space) == 4 and dev == 1:
-
-            #  if tokens_space[1].lower() == "make" and len(tokens_space) == 4:
+            pass
+            # if tokens_space[1].lower() == "make" and len(tokens_space) == 4:
             #     import qrcode
             #
             #     # Function to generate and display QR code
