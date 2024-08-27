@@ -21,6 +21,7 @@ PyCodeRunnerInfo = f"""
 Python Version : {pyver}"""
 
 if __name__ == "__main__":
+    dev = 0
     version = "0.0.1 Alpha"
     path = os.getcwd()
     print(f"{Fore.LIGHTWHITE_EX}Original PyConsole {version}\n"
@@ -103,31 +104,35 @@ if __name__ == "__main__":
 
             pycoderunner.mainloop()
 
-        elif tokens_space[0].lower() == "qr" and len(tokens_space) == 3:
-            if tokens_space[1].lower() == "make" and len(tokens_space) == 3:
-                import qrcode
+        elif tokens_space[0].lower() == "qr" and len(tokens_space) == 4 and dev == 1:
 
-
-                # Function to generate and display QR code
-                def generate_qr_code(data, filename='qrcode.png'):
-                    # Create a QR Code object
-                    img = qrcode.make(data)
-
-                    # Save the image to a file
-                    img.save(filename)
-
-                    # Display the QR code image
-                    img.show()
-
-                    print(f'QR code generated and saved as {filename}')
-
-                # Usage
-                data = tokens_space[2]  # The data you want to encode in the QR code
-                filename = tokens_space[3]  # The name of the file where the QR code will be saved
-                generate_qr_code(data, filename)
-            elif tokens_space[1].lower() == "read" and len(tokens_space) == 3:
-                pass
-
+            #  if tokens_space[1].lower() == "make" and len(tokens_space) == 4:
+            #     import qrcode
+            #
+            #     # Function to generate and display QR code
+            #     def generate_qr_code(data, filename='qrcode.png'):
+            #         # Create a QR Code object
+            #         img = qrcode.make(data)
+            #
+            #         # Save the image to a file
+            #         img.save(filename)
+            #
+            #         # Display the QR code image
+            #         img.show()
+            #
+            #         print(f'QR code generated and saved as {filename}')
+            #
+            #     # Usage
+            #     data = tokens_space[2]  # The data you want to encode in the QR code
+            #     filename = tokens_space[3]  # The name of the file where the QR code will be saved
+            #     generate_qr_code(data, filename)
+            # elif tokens_space[1].lower() == "read" and len(tokens_space) == 3:
+            #     pass
+        elif tokens_space[0].lower() == "dev" and len(tokens_space) == 2:
+            if tokens_space[1].lower() == "1":
+                dev = 1
+            elif tokens_space[1].lower() == "0":
+                dev = 0
         else:
             try:
                 os.startfile(tokens_space[0])
